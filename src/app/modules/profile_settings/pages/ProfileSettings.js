@@ -8,7 +8,6 @@ import {
   CardHeader,
 } from "./../../../../_metronic/_partials/controls";
 import ProfileSecurity from "./profileSecurity";
-import ProfileAccount from "./profileAccount";
 
 export function ProfileSettings() {
   const [selectedTab, setSelectedTab] = useState("basic-details");
@@ -39,11 +38,6 @@ export function ProfileSettings() {
             <Tab eventKey="change-password" title="Change Password">
               <div className="p-6">
                 <ProfileChangePassword  selectedTab={selectedTab}/>
-              </div>
-            </Tab>
-            <Tab eventKey="account" title="Account">
-              <div className="p-6">
-                <ProfileAccount  selectedTab={selectedTab}/>
               </div>
             </Tab>
           </Tabs>

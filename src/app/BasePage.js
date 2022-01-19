@@ -10,15 +10,7 @@ import { ThirdPartyServices } from "./modules/third_party_services";
 import AddTemplate from "./modules/email_management/pages/AddTemplate";
 import { CmsPages } from "./modules/cms_pages";
 import { CmsPageDetail } from "./modules/cms_pages";
-import AddNotificationTemplate from "./modules/notification_management/pages/AddNotification";
-import { NotificationManagement } from "./modules/notification_management/pages/notificationManagement";
-import { DefaultPassword } from "./modules/default_password";
-import { FaqManagement } from "./modules/faq_management/pages/faqManagement";
-import UpdateFAQ from "./modules/faq_management/pages/updateFAQ";
-import { ProjectManagement } from "./modules/projectManagement/pages/projectManagement";
-import { ticketSupportManagement } from "./modules/ticketSupportManagement/pages/ticketSupportManagement";
-import { MasterManagement } from "./modules/masterManagement/pages/masterManagement";
-import { WtRequests } from "./modules/wtRequests/pages/wtRequests";
+
 
 export default function BasePage() {
   return (
@@ -53,22 +45,6 @@ export default function BasePage() {
           component={AddTemplate}
         />
         <ContentRoute
-          exact
-          path="/notification-management"
-          component={NotificationManagement}
-        />
-        <ContentRoute
-          exact
-          path="/notification-management/add-template"
-          component={AddNotificationTemplate}
-        />
-        <ContentRoute
-          exact
-          path="/notification-management/edit-template/:id"
-          component={AddNotificationTemplate}
-        />
-
-        <ContentRoute
           path="/third-party-services"
           component={ThirdPartyServices}
         />
@@ -80,34 +56,6 @@ export default function BasePage() {
         <ContentRoute
           path="/cms-pages/cms-page-detail"
           component={CmsPageDetail}
-        />
-        <ContentRoute path="/default-password" component={DefaultPassword} />
-        <ContentRoute exact path="/faq-management" component={FaqManagement} />
-        {/* <ContentRoute exact path="/faq-management/add-faq" component={AddFAQ} /> */}
-        <ContentRoute
-          exact
-          path="/faq-management/edit-faq"
-          component={UpdateFAQ}
-        />
-        <ContentRoute
-          exact
-          path="/project-management"
-          component={ProjectManagement}
-        />
-        <ContentRoute
-          exact
-          path="/ticket-support-management"
-          component={ticketSupportManagement}
-        />
-        <ContentRoute
-          exact
-          path="/master-management"
-          component={MasterManagement}
-        />
-        <ContentRoute
-          exact
-          path="/wtRequests"
-          component={WtRequests}
         />
         <Redirect to="error/error-v1" />
       </Switch>

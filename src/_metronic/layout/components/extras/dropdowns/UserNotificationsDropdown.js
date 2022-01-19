@@ -10,10 +10,8 @@ import { Link } from "react-router-dom";
 import { useHtmlClassService } from "../../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../../_helpers";
 import { DropdownTopbarItemToggler } from "../../../../_partials/dropdowns";
-import socket from "../../../../../app/modules/Socket/Socket";
 import { notificationListAsync } from "../../../../../app/modules/Auth/redux/authApi";
 import { ReactTimeAgoC } from "../../../../../app/utils/ReactTimeAgoC";
-import { getAllTicketsAsync } from "../../../../../app/modules/ticketSupportManagement/redux/tickets&SupportApi";
 
 const perfectScrollbarOptions = {
   wheelSpeed: 2,
@@ -37,33 +35,6 @@ export function UserNotificationsDropdown() {
     };
   }, [uiService]);
 
-  //Notifications start
-  useEffect(() => {
-    if (user !== null && user !== undefined) {
-      let socketConnection = socket.connect();
-      socketConnection.on('connect', function () {
-        socket.emit("setSocketId", {
-          id: user._id,
-          socketId: socketConnection.id,
-        });
-      });
-
-      socket.on('newAdminNotification', (data) => {
-        console.log("notification admin");
-        //dispatch(notificationListAsync());
-        dispatch(getAllTicketsAsync());
-        setNotification(true);
-      })
-
-      //dispatch(notificationListAsync());
-
-      return () => {
-        socket.off('newAdminNotification');
-        socket.disconnect('newAdminNotification');
-      }
-    }
-  }, [user]);
-  //Notifications end
 
   return (
     <>

@@ -31,7 +31,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-dark-75 text-hover-primary"
           >
-            ReBaked
+            DZI
           </a>
         </div>
       </div>

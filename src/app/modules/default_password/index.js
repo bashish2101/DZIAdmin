@@ -1,1 +1,0 @@
-export { DefaultPassword } from './pages/defaultPassword';
