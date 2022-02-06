@@ -19,7 +19,7 @@ export const getAllUserAsync = (searchBy, searchText, dir) => {
       dispatch(UserManagementActions.getAllUserStart());
       const { data } = await axios({
         method: "POST",
-        url: `${process.env.REACT_APP_HOST}${adminBaseURL}/getAllUsers/${_id}?skip=${skip}&limit=${limit}&column=${searchBy}&dir=${dir}&search=${searchText}&adminVerification=`,
+        url: `${process.env.REACT_APP_HOST}${adminBaseURL}/getAllUsers/${_id}?skip=${skip}&limit=${limit}&column=${searchBy}&dir=${dir}&search=${searchText}`,
         headers: {
           "Content-Type": "application/json",
         },

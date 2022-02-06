@@ -61,16 +61,17 @@ const UserManagementTable = ({ onUserDetailsClick }) => {
               <thead>
                 <tr>
                   <th>Sr.no</th>
+                  
                   <th
                     onClick={() =>
                       handleSort(
-                        "fullName",
+                        "name",
                         dir === "" || dir === "dsc" ? "asc" : "dsc"
                       )
                     }
                   >
-                    User Name{" "}
-                    {dir !== "" && searchBy === "fullName" && (
+                    Name{" "}
+                    {dir !== "" && searchBy === "name" && (
                       <span className="svg-icon svg-icon-sm svg-icon-primary ml-1">
                         {dir === "dsc" ? (
                           <SVG
@@ -88,9 +89,10 @@ const UserManagementTable = ({ onUserDetailsClick }) => {
                       </span>
                     )}
                   </th>
+                  <th>User Name</th>
                   <th>Phone</th>
                   <th>Email</th>
-                  {/* <th>Verified</th> */}
+                  <th>Registered via</th>
                   <th>Status</th>
                   <th className="wd-120">Actions</th>
                 </tr>
@@ -106,10 +108,12 @@ const UserManagementTable = ({ onUserDetailsClick }) => {
                           </span>
                         </td>
                         <td>
-                          <span className="f-w-500">{userLists.fullName}</span>
+                          <span className="f-w-500">{userLists.name}</span>
                         </td>
+                        <td>{userLists.userName}</td>
                         <td>{userLists.contactNumber}</td>
                         <td>{userLists.emailId}</td>
+                        <td>{userLists.registeredVia}</td>
                         {/* <td>
                           <span
                             className={`pmnt_btn ${
@@ -134,7 +138,7 @@ const UserManagementTable = ({ onUserDetailsClick }) => {
                           </span>
                         </td>
                         <td>
-                          <a
+                          {/* <a
                             title="Edit"
                             className="btn btn-icon btn-light btn-hover-primary btn-sm mr-3"
                             onClick={() => onUserDetailsClick(userLists)}
@@ -146,7 +150,7 @@ const UserManagementTable = ({ onUserDetailsClick }) => {
                                 )}
                               />
                             </span>
-                          </a>
+                          </a> */}
                           {userLists.status === "ACTIVE" ? (
                             <a
                               title="Delete"

@@ -27,7 +27,7 @@ function SetNewPassword() {
         .required("Password is required"),
       confirmPassword: Yup.string()
         .trim()
-        .test("passwords-match", "Passwords must match", function(value) {
+        .test("passwords-match", "Passwords must match", function (value) {
           return this.parent.password === value;
         }),
     });
@@ -66,10 +66,11 @@ function SetNewPassword() {
         }}
         validationSchema={PasswordSchema}
         onSubmit={(values, { resetForm }) => {
+          console.log({ values })
           onSetPassword(values, resetForm);
         }}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, touched, errors }) => (
           <>
             <div className="login-form login-signin" id="kt_login_signin_form">
               <div className="text-center mb-10 mb-lg-15">
@@ -93,6 +94,11 @@ function SetNewPassword() {
                       className="far fa-eye-slash"
                     ></i>
                   </div>
+                  {touched.password && errors.password ? (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">{errors.password}</div>
+                    </div>
+                  ) : null}
                 </div>
                 <div className="form-group fv-plugins-icon-container">
                   <div className="frpsswrd">
@@ -107,6 +113,11 @@ function SetNewPassword() {
                       className="far fa-eye-slash"
                     ></i>
                   </div>
+                  {touched.confirmPassword && errors.confirmPassword ? (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">{errors.confirmPassword}</div>
+                    </div>
+                  ) : null}
                 </div>
                 <div className="form-group mb-0 mt-0">
                   <div className="row">

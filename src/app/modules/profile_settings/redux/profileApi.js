@@ -92,7 +92,10 @@ export const resetPasswordAsync = (password) => {
           showSuccessSnackbar("success", data.responseMessage, 3000)
         );
       }
-      return dispatch(ProfileActions.resetPasswordError());
+      dispatch(ProfileActions.resetPasswordError());
+      return dispatch(
+        showSuccessSnackbar("error", data.responseMessage, 3000)
+      );
     } catch (error) {
       dispatch(ProfileActions.resetPasswordError());
       dispatch(

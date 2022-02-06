@@ -33,14 +33,14 @@ export function AuthPage() {
                   alt="Logo"
                   // className="max-h-70px"
                   width="150px"
-                  src={toAbsoluteUrl("/media/logos/logo.svg")}
+                  src={toAbsoluteUrl("/media/logos/logo-default.png")}
                 />
               </Link>
               {/* end:: Aside header */}
 
               {/* start:: Aside content */}
               <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                <h3 className="font-size-h1 mb-5 ">Welcome to DZI</h3>
+                <h3 className="font-size-h1 mb-5 ml-30">Welcome to DZI</h3>
               </div>
               {/* end:: Aside content */}
 

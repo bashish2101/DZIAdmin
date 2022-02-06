@@ -47,7 +47,7 @@ export function AsideMenuList({ layoutProps }) {
           </NavLink>
         </li>
         {/*end::1 Level*/}
-        <li
+        {/* <li
           className={`menu-item ${getMenuItemActive(
             "/email-management",
             false
@@ -73,7 +73,7 @@ export function AsideMenuList({ layoutProps }) {
             </span>
             <span className="menu-text">CMS Pages</span>
           </NavLink>
-        </li>
+        </li> */}
       </ul>
       {/* end::Menu Nav */}
     </>

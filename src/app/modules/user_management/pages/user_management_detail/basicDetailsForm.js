@@ -29,16 +29,17 @@ const BasicDetailsForm = ({ selectedUser, isLoading, reDirect }) => {
         .trim()
         .matches(phoneRegExp, "Please enter valid contact number.")
         .required("Please enter contact number."),
-      fullName: Yup.string()
+      name: Yup.string()
         .trim()
         .min(3, "Minimum 2 characters")
         .max(50, "Maximum 50 characters")
-        .required("Full name is required"),
+        .required("Name is required"),
     });
+    
 
   const formik = useFormik({
     initialValues: {
-      fullName: selectedUser.fullName || "",
+      name: selectedUser.name || "",
       contactNumber: selectedUser.contactNumber || "",
       emailId: selectedUser.emailId || "",
     },
@@ -78,18 +79,18 @@ const BasicDetailsForm = ({ selectedUser, isLoading, reDirect }) => {
               <div className="row">
                 <div className="col-md-12">
                   <div className="form-group">
-                    <label className="form-label">Full Name</label>
+                    <label className="form-label">Name</label>
                     <input
-                      placeholder="Full Name"
+                      placeholder="Name"
                       type="text"
                       className={`form-control`}
-                      name="fullName"
-                      {...formik.getFieldProps("fullName")}
+                      name="name"
+                      {...formik.getFieldProps("name")}
                     />
-                    {formik.touched.fullName && formik.errors.fullName ? (
+                    {formik.touched.name && formik.errors.name ? (
                       <div className="fv-plugins-message-container">
                         <div className="fv-help-block">
-                          {formik.errors.fullName}
+                          {formik.errors.name}
                         </div>
                       </div>
                     ) : null}

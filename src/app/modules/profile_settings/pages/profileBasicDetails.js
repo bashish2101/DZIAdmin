@@ -31,11 +31,11 @@ const ProfileBasicDetails = (props) => {
   }, [props && props.selectedTab]);
 
   const { user, isLoading } = useSelector((state) => state.auth, shallowEqual);
-
+  
   const initialValues = {
     emailId: user.emailId || "",
     contactNumber: user.contactNumber || "",
-    fullName: user.fullName || "",
+    name: user.name || "",
     country: user.country || "",
     state: user.state || "",
     city: user.city || "",
@@ -58,26 +58,12 @@ const ProfileBasicDetails = (props) => {
     }
   };
 
-  const changeContactRequest = () => {
-    if (
-      !formik.errors.contactNumber &&
-      isValidPhoneNumber(formik.values && formik.values.contactNumber)
-    ) {
-      dispatch(
-        changeContactRequestAsync({
-          contactNumber: formik.values.contactNumber,
-        })
-      );
-    } else {
-      formik.setErrors({ contactNumber: "Invalid contact number" });
-    }
-  };
 
   const ProfileSchema = () =>
     Yup.object().shape({
-      fullName: Yup.string()
+      name: Yup.string()
         .trim()
-        .required("Full name is required"),
+        .required("Name is required"),
       emailId: Yup.string()
         .trim()
         .email("Enter valid email")
@@ -157,18 +143,18 @@ const ProfileBasicDetails = (props) => {
                 </div>
                 <div className="col-md-12">
                   <div className="form-group">
-                    <label className="form-label">Full Name</label>
+                    <label className="form-label">Name</label>
                     <input
-                      placeholder="Full Name"
+                      placeholder="Name"
                       type="text"
                       className={`form-control wth_chng`}
-                      name="fullName"
-                      {...formik.getFieldProps("fullName")}
+                      name="name"
+                      {...formik.getFieldProps("name")}
                     />
-                    {formik.touched.fullName && formik.errors.fullName ? (
+                    {formik.touched.name && formik.errors.name ? (
                       <div className="fv-plugins-message-container">
                         <div className="fv-help-block">
-                          {formik.errors.fullName}
+                          {formik.errors.name}
                         </div>
                       </div>
                     ) : null}
@@ -198,16 +184,6 @@ const ProfileBasicDetails = (props) => {
                           </div>
                         </div>
                       ) : null}
-                      {formik.values.contactNumber !==
-                        formik.values.oldNumber && (
-                        <button
-                          className="btn_new btn-sm"
-                          type="button"
-                          onClick={() => changeContactRequest()}
-                        >
-                          VERIFY
-                        </button>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -221,6 +197,7 @@ const ProfileBasicDetails = (props) => {
                         className={`form-control wth_chng`}
                         name="emailId"
                         {...formik.getFieldProps("emailId")}
+                        readOnly={true}
                       />
                       {formik.values.emailId !== formik.values.oldEmail && (
                         <button

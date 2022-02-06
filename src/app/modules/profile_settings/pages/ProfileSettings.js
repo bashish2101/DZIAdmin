@@ -30,11 +30,11 @@ export function ProfileSettings() {
                 <ProfileBasicDetails selectedTab={selectedTab} />
               </div>
             </Tab>
-            <Tab eventKey="security" title="Security">
+            {/* <Tab eventKey="security" title="Security">
               <div className="p-6">
                 <ProfileSecurity />
               </div>
-            </Tab>
+            </Tab> */}
             <Tab eventKey="change-password" title="Change Password">
               <div className="p-6">
                 <ProfileChangePassword  selectedTab={selectedTab}/>

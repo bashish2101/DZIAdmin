@@ -67,7 +67,7 @@ export function UserManagement() {
                 onSubmit={(e) => e.preventDefault()}
               >
                 <div className="form-row">
-                  <div className="form-group mr-5 mb-1 mt-2">
+                  {/* <div className="form-group mr-5 mb-1 mt-2">
                     <button
                       className="btn_new btn-sm"
                       type="button"
@@ -75,7 +75,7 @@ export function UserManagement() {
                     >
                       Add
                     </button>
-                  </div>
+                  </div> */}
                   <div className="form-group mr-3 mb-1">
                     <input
                       name="Search"
