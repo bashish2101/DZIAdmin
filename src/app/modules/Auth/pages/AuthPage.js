@@ -33,7 +33,7 @@ export function AuthPage() {
                   alt="Logo"
                   // className="max-h-70px"
                   width="150px"
-                  src={toAbsoluteUrl("/media/logos/logo-default.png")}
+                  src={toAbsoluteUrl("/media/logos/logo-latest.png")}
                 />
               </Link>
               {/* end:: Aside header */}

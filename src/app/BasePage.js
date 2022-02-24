@@ -10,6 +10,8 @@ import { ThirdPartyServices } from "./modules/third_party_services";
 import AddTemplate from "./modules/email_management/pages/AddTemplate";
 import { CmsPages } from "./modules/cms_pages";
 import { CmsPageDetail } from "./modules/cms_pages";
+import { PropertyManagement } from "./modules/propertyManagement/pages/propertyManagement";
+import  AddProperty  from "./modules/propertyManagement/pages/AddProperty";
 
 
 export default function BasePage() {
@@ -27,6 +29,16 @@ export default function BasePage() {
         <ContentRoute
           path="/user-management/user-management-detail"
           component={UserManagementDetail}
+        />
+        <ContentRoute
+          exact
+          path="/property-management"
+          component={PropertyManagement}
+        />
+        <ContentRoute
+          exact
+          path="/add-property"
+          component={AddProperty}
         />
         <ContentRoute
           exact

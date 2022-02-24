@@ -8,6 +8,7 @@ import * as dashboard from "../app/modules/dashboards/redux";
 import * as thirdParty from "../app/modules/third_party_services/redux";
 import * as cms from "../app/modules/cms_pages/redux";
 import snackBarReducer from "../app/modules/snackBar/snackbarReducer";
+import * as propertyManagement from "../app/modules/propertyManagement";
 
 export const rootReducer = combineReducers({
   snackBar: snackBarReducer,
@@ -15,6 +16,7 @@ export const rootReducer = combineReducers({
   dashboard: dashboard.reducer,
   auth: auth.reducer,
   userManagement: userManagement.reducer,
+  propertyManagement: propertyManagement.reducer,
   emailManagement: emailManagement.reducer,
   profile: profile.reducer,
   thirdParty: thirdParty.reducer,
